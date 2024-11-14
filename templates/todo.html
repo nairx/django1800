@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Todo Page</h3>
+<form method="POST">
+    {% csrf_token %}
+    <p><input type="text" name="task"><button>Add</button></p>
+    <hr>
+    <ol>
+    {% for row in todos %}
+    <li>{{row.task}} - <a href="/deleteTodo/?id={{row.id}}">Delete</a></li>
+    {% endfor %}
+</ol>
+</form>
+
+{% endblock %}

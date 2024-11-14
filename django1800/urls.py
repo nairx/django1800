@@ -24,4 +24,6 @@ urlpatterns = [
     path('services/',views.services),
     path('faq/',views.faq),
     path('contact/',views.contact),
+    path('todo/',views.todo),
+    path('deleteTodo/',views.deleteTodo)
 ]
