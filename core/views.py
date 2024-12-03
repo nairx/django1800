@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from core import models
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     return render(request,"home.html")
@@ -27,4 +29,18 @@ def deleteTodo(request):
         todoId = int(request.GET.get("id"))
         models.todo.objects.filter(id=todoId).delete()
     return todo(request)
-    
+
+def logout_view(request):
+    logout(request)
+    return home(request)
+
+def signup(request):
+    if request.method=="POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/accounts/login')
+    else:
+        form = UserCreationForm()
+    context = {'form':form}
+    return render(request,'signup.html',context)

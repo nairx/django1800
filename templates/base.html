@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>My Coffee Shop</h1>
-    <a href="/">Home</a> | 
-    <a href="/services">Services</a> | 
-    <a href="/faq">FAQ</a> |
-    <a href="/contact">Contact</a> |
-    <a href="/todo">Todo</a>
-    <hr>
-    {% block content  %}
 
-    {% endblock %}
-    <hr>
+    <a href="/">Home</a> | <a href="/services">Services</a> |
+    <a href="/faq">FAQ</a> | <a href="/contact">Contact</a> |
+    <a href="/todo">Todo</a>
+
+    {% if user.is_authenticated %}
+    {{user.username}}
+    <a href="/logout">Logout</a>
+    {% else %}
+    <a href="/accounts/login">Login</a>
+    {% endif %}
+
+    <hr />
+    {% block content %} {% endblock %}
+    <hr />
     <h4>@copyright 2024. All rights reserved.</h4>
-</body>
+  </body>
 </html>

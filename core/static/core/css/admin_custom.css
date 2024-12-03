@@ -1,0 +1,16 @@
+#header {
+    background-color: orange;
+}
+
+#sidebar {
+    background-color: pink;
+}
+
+#content {
+    background-color: yellow;
+}
+
+button {
+    background-color: blue;
+    color:white
+}
