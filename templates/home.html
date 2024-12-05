@@ -1,7 +1,18 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content%}
 
-{% block content%}
+{% filter upper %}
+<h1>Hello World</h1>
+{% endfilter %}
 
-<h1>This is home page</h1>
+<div style="display:flex;justify-content: center;">
+  {% for row in products %}
+  <div style="margin:20px;background-color: silver;padding:10px">
+    <img src="{{row.url}}" />
+    <h2>{{row.name|lower}}</h2>
+    <p>{{row.desc|slice:"0:4"|add:"..."}}</p>
+    <h3>{{row.price|add:10}}</h3>
 
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

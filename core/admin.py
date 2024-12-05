@@ -7,5 +7,4 @@ admin.site.register(todo,todoadmin)
 
 class productadmin(admin.ModelAdmin):
     list_display=['id','name','price','desc','url']
-    
 admin.site.register(product,productadmin)

@@ -2,9 +2,14 @@ from django.shortcuts import render,redirect
 from core import models
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
-    return render(request,"home.html")
+    product = models.product.objects.all()
+    data = {'products':product}
+    return render(request,'home.html',data)
+
 
 def services(request):
     return render(request,"services.html")
@@ -15,6 +20,7 @@ def faq(request):
 def contact(request):
     return render(request,"contact.html")
 
+@login_required
 def todo(request):
     if request.method == "POST":
         task = request.POST.get("task")
@@ -32,7 +38,8 @@ def deleteTodo(request):
 
 def logout_view(request):
     logout(request)
-    return home(request)
+    return redirect('/')
+
 
 def signup(request):
     if request.method=="POST":

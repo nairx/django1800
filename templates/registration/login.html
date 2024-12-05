@@ -4,17 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            margin:0px;
+            background-color: #eeeeee;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+        .left-box {
+            margin: 80px;
+            padding: 50px;
+        }
+        .right-box {
+            background-color: white;
+            margin: 80px;
+            padding: 50px;
+            text-align: center;
+        }
+        .title {
+            color:blue;
+            font-size: 40px;
+        }
+        .login-button {
+            background-color: blue;
+            color:white;
+            padding: 10px;
+            width:100%;
+            border:none;
+            border-radius:5px;
+            font-size: larger;
+            font-weight: bold;
+        }
+        .register-button {
+            background-color: green;
+            color:white;
+            padding: 10px;
+             border:none;
+            border-radius:5px;
+            font-size: larger;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .caption {
+            font-size: larger;
+        }
+    </style>
 </head>
 <body>
     
-<h1>Login Form</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button>Login</button>
-    <hr>
-    <a href="/signup">New user signup here</a>
-</form>
+<div class="container">
+    <div class="left-box">
+        <h1 class="title">My Website</h1>
+        <p class="caption">My Website helps you connect and share<br> 
+            with the people in your life.</p>
+    </div>
+    <div class="right-box">
+        <form method="POST">
+            {% csrf_token %}
+            <!-- {{form.as_p}} -->
+            <p>{{form.username}}</p> 
+            <p>{{form.password}}</p> 
+            <button class="login-button">Log in</button><br>
+            <hr>
+            <br>
+            <a href="/signup" class="register-button">New user signup here</a>
+        </form>
+    </div>
+</div>
+
 
 </body>
 </html>
