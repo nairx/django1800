@@ -29,4 +29,5 @@ urlpatterns = [
     path('deleteTodo/',views.deleteTodo),
     path('logout/',views.logout_view),
     path('signup/',views.signup),
+    path('cart/',views.cart),
 ]

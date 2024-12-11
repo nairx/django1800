@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block content%}
 
+{% load custom_filter %}
+
 {% filter upper %}
 <h1>Hello World</h1>
 {% endfilter %}
@@ -10,7 +12,7 @@
     <img src="{{row.url}}" />
     <h2>{{row.name|lower}}</h2>
     <p>{{row.desc|slice:"0:4"|add:"..."}}</p>
-    <h3>{{row.price|add:10}}</h3>
+    <h3>{{row.price|add:10|currency}}</h3>
 
   </div>
   {% endfor %}

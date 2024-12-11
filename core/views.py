@@ -10,6 +10,8 @@ def home(request):
     data = {'products':product}
     return render(request,'home.html',data)
 
+def cart(request):
+    return render(request,'cart.html')
 
 def services(request):
     return render(request,"services.html")
